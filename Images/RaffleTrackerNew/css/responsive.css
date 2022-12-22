@@ -1,0 +1,229 @@
+@media screen and (min-width: 760px) and (max-width: 1200px) {
+    .navbar-collapse.collapse {
+        display: none !important;
+    }
+
+    .navbar-toggle {
+        display: inline-block;
+        float: right;
+    }
+
+    .navbar-header {
+        width: 100%;
+    }
+}
+
+/******************** TABLET *********************/
+
+@media only screen and (max-width:990px) {
+    .serviceArrow {
+        display: none;
+    }
+
+    .rowText {
+        padding-right: 17px;
+    }
+
+    .sidebarWidget.submission {
+        height: auto;
+    }
+
+    .filterNav li a {
+        font-size: 13px;
+        padding: 24px 15px 23px 15px;
+    }
+
+    .contactList {
+        border-left: none;
+        padding-left: 0;
+        min-height: inherit;
+    }
+
+    .home-middle-box .buttonGrey {
+        display: block;
+        text-align: center;
+    }
+
+    .call-us {
+        float: left;
+    }
+}
+
+@media only screen and (max-width:1200px) {
+    .subHeader.home, .subHeader.map, .subHeader.page {
+        margin-top: 0;
+    }
+
+    .nav.navbar-nav {
+        float: left;
+    }
+
+        .nav.navbar-nav.userButtons {
+            margin-bottom: 20px;
+        }
+
+    .verticalDivider {
+        display: none;
+    }
+}
+
+/******************** MOBILE *********************/
+
+@media only screen and (max-width: 767px) {
+    .home-middle-box .button {
+        margin-bottom: 20px;
+    }
+    
+    .navbar-brand1 {
+        display:none;
+    }
+
+    .home-middle-box .buttonGrey {
+        display: inline;
+    }
+
+    .call-us {
+        display: none;
+    }
+
+    .nav.navbar-nav {
+        float: none;
+        margin: 0;
+    }
+
+        .nav.navbar-nav li {
+            background: none;
+        }
+
+            .nav.navbar-nav li a {
+                padding: 10px 0;
+            }
+
+        .nav.navbar-nav.userButtons {
+            margin: 0;
+        }
+
+    .userButtons .buttonGrey {
+        margin: 10px 0;
+    }
+
+    .bank-info .load-amount li label {
+        display: inline;
+        padding-right: 0;
+        width: auto;
+        text-align: left;
+    }
+
+    .thank-you li label {
+        display: inline;
+        padding-right: 0;
+        width: auto;
+        text-align: left;
+    }
+
+    .nav.navbar-nav li.dropdown a:hover,
+    .nav.navbar-nav li.dropdown:hover > a {
+        background-color: transparent;
+        color: #038e19;
+    }
+
+    .nav.navbar-nav .dropdown .dropdown-menu {
+        position: relative;
+        left: auto;
+        top: auto;
+        float: none;
+        display: block;
+    }
+
+    .nav.navbar-nav .dropdown .dropdown-menu {
+        background-color: #FFFFFF;
+        left: auto;
+    }
+
+        .nav.navbar-nav .dropdown .dropdown-menu li:first-child a {
+            border-top-style: solid;
+            border-top-width: 1px;
+            border-top-color: #efefef;
+        }
+
+        .nav.navbar-nav .dropdown .dropdown-menu li a {
+            color: #666666;
+            border-bottom-style: solid;
+            border-bottom-width: 1px;
+            border-bottom-color: #efefef;
+        }
+
+    .steps {
+        margin: 0 0 30px;
+        text-align: left;
+    }
+
+        .steps:before {
+            display: none;
+        }
+
+        .steps li {
+            display: block;
+            float: left;
+            width: 50%;
+            margin: 10px 0;
+            position: relative;
+        }
+
+            .steps li a span {
+                display: inline-block;
+                *display: inline;
+                zoom: 1;
+                margin: 0 10px 0 0;
+                text-align: center;
+            }
+}
+
+@media only screen and (max-width: 589px) {
+    .topBarText {
+        font-size: 10px;
+    }
+
+    
+
+
+    .topBar .socialIcons li {
+        border: none;
+        padding: 0px;
+        padding-left: 5px;
+    }
+    /** SUBHEADER HOME **/
+    .subHeader.home h1 {
+        font-size: 40px;
+        line-height: 61px;
+    }
+
+    .icon-button-arrow, .icon-button-user {
+        display: none;
+    }
+
+    .buttonText {
+        margin-left: 15px;
+    }
+
+    .or {
+        display: none;
+    }
+
+    .subHeader.home .sliderPrice {
+        font-size: 37px;
+    }
+
+    .sliderTextBox .buttonGrey.large {
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+    /** FILTER **/
+    .filterNav li a {
+        padding: 23px 20px 23px 20px;
+    }
+
+    .masonryRow .col-lg-3 {
+        max-width: 100%;
+    }
+}

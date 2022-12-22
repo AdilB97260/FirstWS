@@ -1,0 +1,194 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="RaffleTracker.master.cs"
+    Inherits="RaffleTracker" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head" runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Raffle Tracking Ticket</title>
+    <!-- html5 support in IE8 and later -->
+    <!-- CSS file links -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/css/responsive.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/plugins/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="/css/jquery.alerts.css" rel="stylesheet" />
+    <script src="/js/html5shiv.js"></script>
+    <script src="/js/jquery-1.4.1.min.js"></script>
+    <script src="/js/jquery.alerts.js"></script>
+    <script src="/js/jquery.js" type="text/javascript"></script>
+    <asp:ContentPlaceHolder ID="header" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <!-- Start Header -->
+    <header class="navbar navbar-default" style="height: 120px">
+            <div class="topBar">
+            </div>
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/login.aspx">
+                        <img src="/images/logo.jpg" alt="Raffle Ticket System" height="85" /></a>
+
+                </div>
+
+                <div class="navbar-collapse collapse" style="padding-top: 25px">
+                    <ul class="nav navbar-nav" id="liLogin" runat="server" visible="true" style="float:left!important; padding-left:0px;"> 
+                        
+                        <li id="liDash" runat="server" visible="true" style="font-size:24px; font-weight:600; padding-top:13px; color:#4c9c9c; font-family:Cursive;">Raffle Ticket Tracking</li>
+                    </ul>
+
+                   <ul class="nav navbar-nav" id="liAdmin" runat="server">
+                       
+                       <li id="report" runat="server" visible="false" class="dropdown" style="padding-right: 0px; padding-left:0px;">
+                            <a href="/" class="dropdown-toggle" style="padding-top:18px!important">
+                                 <img src="/images/create-report.png" alt="profile" title="profile"
+                                height="40" width="40" />
+                                &nbsp;
+                                <asp:Label ID="Label2" Text="Create Reports" runat="server"></asp:Label>
+                            </a>
+
+                            <ul  class="dropdown-menu dropdown-user">
+                            <li id="SALESDISTREP" runat="server" visible="false"><a href="/Reports/SaleReport.aspx"><i class="fa fa-user fa-fw"></i>Sales By Distributer Report</a></li>
+                            <li id="SALESDATERANGEREP" runat="server" visible="false"><a href="/Reports/SalesDateRange.aspx"><i class="fa fa-user fa-fw"></i>Sales by Date Range</a></li>
+                            <li id="DISTREP" runat="server" visible="false"><a href="/Reports/distributerReport.aspx"><i class="fa fa-user fa-fw"></i>Distribution Report</a></li>
+                            <li id="TICKDISTREP" runat="server" visible="false"><a href="/reports/viewTicketDistribution.aspx"><i class="fa fa-user fa-fw"></i>View Ticket Distribution</a></li>
+                            <li id="AcctRep" runat="server" visible="false"><a href="/reports/TopAccountingReport.aspx"><i class="fa fa-user fa-fw"></i>Top Accounting Report</a> </li> 
+                            
+                            
+                            <li class="divider"></li>
+                            
+                        </ul>
+
+                         
+                        </li>
+
+                         <li class="dropdown" style="padding-right: 0px; padding-left:0px;" id="liAdmin2" runat="server">
+                            <a href="/" class="dropdown-toggle" style="padding-top:18px!important">
+                                 <img src="/images/setting.jpg" alt="Settings" title="Settings"
+                                height="40" width="40" />
+                                &nbsp;
+                                <asp:Label ID="Label3" Text="Settings" runat="server"></asp:Label>
+                            </a>
+
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a href="/admin/GenerateNewYearRaffle.aspx"><i class="fa fa-user fa-fw"></i>Generate New Year Raffle</a></li>
+                                <li><a href="/admin/ChangeLoginYear.aspx"><i class="fa fa-user fa-fw"></i>Change Login Year Raffle</a></li>
+                                <li><a href="/admin/ImportPreviousYearData.aspx"><i class="fa fa-user fa-fw"></i>Import Previous year data</a></li>
+                                <li><a href="/admin/ExpencesList.aspx"><i class="fa fa-user fa-fw"></i>Manage Expenses</a></li>
+                                <li class="divider"></li>
+                            </ul>
+                        </li>
+                       
+                       
+                        <li class="my-account-link" style="padding-right: 40px; padding-left:20px; float:left">
+                            <a href="<%=UserSession.Inst.ProfileURL() %>" class="dropdown-toggle"  style="padding-top:18px!important">
+                                 <img src="/images/user_male2-512.png" alt="profile" title="profile"
+                                 height="38" width="38" />
+                                &nbsp;
+                                <asp:Label ID="lblUserName" Text="Welcome.." runat="server"></asp:Label>
+                            </a>
+                         
+                        </li>
+
+                        
+
+                        <li class="dropdown last">
+                            <ul class="nav navbar-nav userButtons">
+                                <li>
+                                    <a id="A1" href="#" class="dropdown-toggle buttonLogOut" runat="server" onserverclick="btnLogout_Click">
+                                        <img src="/images/icon-login.png" alt="" />&nbsp;Logout </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+
+                    <ul class="nav navbar-top-links navbar-right" id="Ul1" runat="server" visible="false">
+                    <li class="dropdown">
+
+                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-user fa-fw"></i><i class="fa fa-caret-down"></i>
+                            Welcome<span style="color: #555; padding-left: 5px;"><asp:Label ID="Label1" runat="server"></asp:Label>
+                    </span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li><a href="#"><i class="fa fa-user fa-fw"></i>User Profile</a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-gear fa-fw"></i>Add Tickets</a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-gear fa-fw"></i>History</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a id="btnLogout" href="javascript:void(0);" runat="server"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
+                            </li>
+                        </ul>
+
+
+                        <!-- /.dropdown-tasks -->
+                    </li>
+
+                    <li class="dropdown">
+                       
+                        <!-- /.dropdown-user -->
+                    </li>
+
+
+                    <!-- /.dropdown -->
+                </ul>
+
+
+                 
+
+
+                </div>
+
+
+                <!--/.navbar-collapse -->
+            </div>
+            <!-- end header container -->
+    </header>
+    <!-- End Header -->
+    <section class="properties">
+            <div class="container" style="min-height: 585px">
+                <asp:ContentPlaceHolder ID="main" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <!-- end container -->
+    </section>
+    <div class="bottomBar">
+        <div class="container">
+            <p class="copyright">
+                &copy;2019 - Raffle Tracking Ticket</p>
+        </div>
+    </div>
+    </form>
+</body>
+<script src="/js/bootstrap.min.js" type="text/javascript"></script>
+<!-- bootstrap 3.0 -->
+<script src="/js/respond.js" type="text/javascript"></script>
+<script src="/js/jquery.bxslider.min.js" type="text/javascript"></script>
+<script src="/js/jquery.alerts.js" type="text/javascript"></script>
+<script src="/js/jquery.prettyPhoto.js" type="text/javascript"></script>
+<script src="/js/jquery.timepicker.js" type="text/javascript"></script>
+<script src="/js/Custome.js" type="text/javascript"></script>
+<script src="/js/jquery-ui.js" type="text/javascript"></script>
+<!-- Jquery -->
+<!-- bootstrap 3.0 -->
+<script src="/js/respond.js"></script>
+<script src="/js/jquery.timepicker.js"></script>
+<script src="/js/Custome.js"></script>
+<script src="/js/jquery-ui.js"></script>
+<!-- bxslider -->
+
+<script data-ad-client="ca-pub-2968067289326349" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+</html>

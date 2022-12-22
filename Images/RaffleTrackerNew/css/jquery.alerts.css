@@ -1,0 +1,140 @@
+﻿#popup_container
+{
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    min-width: 300px; /* Dialog will be no smaller than this */
+    max-width: 600px; /* Dialog will wrap after this width */
+    background: #FFF;
+    border: solid 2px #0578BE;
+    color: #000;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+#popup_title
+{
+    font-size: 14px !important;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.75em;
+    color: #FFF;
+    background: #0578BE url(/images/title.gif) top repeat-x;
+    border: 0px none;
+    cursor: default;
+    padding: 5px;
+    margin: 0em;
+}
+
+#popup_content
+{
+    background: 16px 16px no-repeat url(../images/info.gif);
+    padding: 1em 1.75em;
+    margin: 0em;
+}
+
+#popup_content.alert
+{
+    background-image: url(../images/success.png);
+    background-position: 26px 7px;
+}
+
+#popup_content.important
+{
+    background-image: url(../images/important.gif);
+}
+
+
+#popup_content.confirm
+{
+    background-image: url(../images/important.gif);
+}
+
+#popup_content.prompt
+{
+    background-image: url(../images/help.gif);
+}
+
+#popup_message
+{
+    padding-left: 48px;
+}
+
+#popup_panel
+{
+    text-align: center;
+    margin: 1em 0em 0em 1em;
+}
+
+#popup_prompt
+{
+    margin: .5em 0em;
+}
+
+#popup_panel input#popup_ok
+{
+    background: #0578be;
+    height: auto;
+    padding: 8px;
+    border: 0 none;
+    border-radius: 3px;
+    color: #fff;
+    font-weight: bold;
+    text-trans
+        : uppercase;
+    font-size: 12px;
+    width:100px;
+    margin-bottom:0px!important;
+}
+
+#popup_panel input#popup_cancel
+{
+    background-color: #e5e5e5!important;
+    height: auto;
+    padding: 8px;
+    border: 0 none;
+    border-radius: 3px;
+    color: #232222;
+    font-weight: bold;
+    text-trans
+        : uppercase;
+    font-size: 12px;
+    width:100px;
+    margin-bottom:0px!important;
+    margin-left:5px;
+}
+
+
+
+/* Custom dialog styles */
+#popup_container.style_1
+{
+    font-family: Georgia, serif;
+    color: #A4C6E2;
+    background: #005294;
+    border-color: #113F66;
+}
+#popup_container.style_1 #popup_title
+{
+    color: #FFF;
+    font-weight: normal;
+    text-align: left;
+    background: #76A5CC;
+    border: solid 1px #005294;
+    padding-left: 1em;
+}
+#popup_container.style_1 #popup_content
+{
+    background: none;
+}
+#popup_container.style_1 #popup_message
+{
+    padding-left: 0em;
+}
+#popup_container.style_1 INPUT[type='button']
+{
+    border: outset 2px #76A5CC;
+    color: #A4C6E2;
+    background: #3778AE;
+}

@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="RaffleLive09282021" Class="InventoryDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=HARUN\MSSQLSERVERHB;Initial Catalog=RaffleLive09282021;Persist Security Info=True;User ID=sa;MultipleActiveResultSets=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="RaffleLive09282021ConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.GetWineSearchList" Method="GetWineSearchList">
+    <Parameter Name="WineName" Parameter="wineName" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="BarCode" Parameter="barCode" Type="System.String" DbType="VarChar(100)" />
+    <ElementType Name="GetWineSearchListResult">
+      <Column Name="Inventory_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Wine_name" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Category_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BarCode" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="BottleSize_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Cost_Wholesale" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Category_Name" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Location1_Qty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Location2_Qty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Location3_qty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Heading_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SubHeading_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="BottlePrize" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="BottleSizeName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="HeadingName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SubHeadingName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="RecNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WinelistLineNo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="WineListCategory" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="AlphaSort" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="Location1_name" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Location2_name" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Location3_name" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetInventoryById" Method="GetInventoryById">
+    <Parameter Name="InventoryID" Parameter="inventoryID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GetInventoryByIdResult">
+      <Column Name="Inventory_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Wine_name" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="BarCode" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="BottleSize_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Cost_Wholesale" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Category_Name" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Location1_Qty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Location2_Qty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Location3_qty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BottleSizeName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="HeadingName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SubHeadingName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Location1_name" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Location2_name" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Location3_name" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetrecSearchList" Method="GetrecSearchList">
+    <Parameter Name="RecNo" Parameter="recNo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="BarCode" Parameter="barCode" Type="System.String" DbType="VarChar(100)" />
+    <ElementType Name="GetrecSearchListResult">
+      <Column Name="Inventory_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Wine_name" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Category_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BarCode" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="BottleSize_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Cost_Wholesale" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Category_Name" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Location1_Qty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Location2_Qty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Location3_qty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Heading_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SubHeading_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="BottlePrize" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="BottleSizeName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="HeadingName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SubHeadingName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="RecNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WinelistLineNo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="WineListCategory" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="AlphaSort" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="Location1_name" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Location2_name" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Location3_name" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

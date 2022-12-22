@@ -1,0 +1,103 @@
+body {
+	background-color:#23292d !important;
+}
+
+h1, .h1 {
+	font-size:28px !important;
+}
+h2, .h2 {
+	font-size:24px !important;
+}
+h3, .h3 {
+	font-size:21px !important;
+}
+.form-control::-moz-placeholder {
+	color:#aaa !important;
+}
+.page-header {
+    border-bottom: 1px solid #ddd !important;
+    margin: 26px 0 ;
+    padding-bottom: 13px !important;
+}
+
+.navbar-brand {
+	background:url(../images/logo.png) no-repeat !important;
+	font-size:0px;
+	width:220px;
+	height:80px;
+}
+
+.navbar-default {
+	background-color: #0277BD !important;
+	border-color: #23292d !important;
+}
+.sidebar {
+	background-color:#23292d !important;
+}
+.sidebar ul li {
+	border-bottom:1px solid #222 !important;
+}
+.sidebar ul li li{
+	background-color:#1b1f23 !important;
+}
+.sidebar .nav-second-level li.active a,
+.sidebar .nav-third-level li.active a { background:#111111 !important;
+}
+.sidebar ul li a.active {
+	background-color:#000 !important;
+}
+.nav>li>a {
+	color:#EEE;
+}
+.nav>li>a:hover, .nav>li>a:focus,
+.sidebar .nav-second-level li a:hover,
+.sidebar .nav-third-level li a:hover {
+	text-decoration:none;
+	background-color:#000 !important;
+	color:#afe1ff;
+}
+.navbar-top-links {
+	margin-top:15px;
+}
+.navbar-top-links li a span {
+	color:#afe1ff !important;
+}
+.navbar-top-links li a:hover {
+	border-radius :100%;
+	background-color:#026baa !important;
+}
+.navbar-top-links li li a:hover {
+	border-radius :0%;
+	background-color:#e3eef7 !important;
+}
+.navbar-top-links li a i{
+	font-size:18px;
+}
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+	border-radius :100%;
+	background-color:#026baa !important;
+}
+
+#page-wrapper {
+	background-color:#f1f2f7 !important;
+}
+.panel-default {
+	border-color:#bfc2cd !important;
+}
+.panel-default > .panel-heading {
+	background-color: #d9dbe1 !important;
+}
+
+.top-cmn {
+	background:#FFF !important;
+	border:1px dashed #428bca !important;
+	margin:20px 0 10px 0 !important;
+}
+
+.modal-header {
+	background-color:#D9DBE1;
+	border-radius: 6px 6px 0 0;
+}
+.modal-header .title{
+	color:#FFF;
+}

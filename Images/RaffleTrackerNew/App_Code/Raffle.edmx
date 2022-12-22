@@ -1,0 +1,957 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="RaffleModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BottleSize">
+          <Key>
+            <PropertyRef Name="BottleSizeId" />
+          </Key>
+          <Property Name="BottleSizeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BottleSizeName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Category_ID" />
+          </Key>
+          <Property Name="Category_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Category_Name" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="DIST_USERS">
+          <Key>
+            <PropertyRef Name="user_pk" />
+          </Key>
+          <Property Name="user_pk" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="parent_userFk" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ChurchAdminstName" Type="varchar" MaxLength="100" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" />
+          <Property Name="phone" Type="varchar" MaxLength="50" />
+          <Property Name="mobile" Type="varchar" MaxLength="50" />
+          <Property Name="createdDate" Type="datetime" Nullable="false" />
+          <Property Name="modifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="LastaccessUserId" Type="int" Nullable="false" />
+          <Property Name="UserType" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedBy_UserFk" Type="int" Nullable="false" />
+          <Property Name="Balance" Type="int" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="200" />
+          <Property Name="TicketDist_Fk" Type="int" />
+          <Property Name="City" Type="varchar" MaxLength="50" />
+          <Property Name="State" Type="varchar" MaxLength="50" />
+          <Property Name="Zip" Type="varchar" MaxLength="50" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="RAFFLE_FK" Type="int" />
+          <Property Name="CHURCH_FK" Type="int" />
+          <Property Name="MEMBER_FK" Type="int" />
+          <Property Name="MEM2MEM_FK" Type="int" />
+          <Property Name="TicketRate" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="YearID" Type="int" />
+          <Property Name="ChurchType" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Expencess">
+          <Key>
+            <PropertyRef Name="expences_id" />
+          </Key>
+          <Property Name="expences_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="expences_name" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="given_to" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Amount" Type="money" Nullable="false" />
+          <Property Name="description" Type="nvarchar" MaxLength="1000" />
+          <Property Name="expences_date" Type="datetime" Nullable="false" />
+          <Property Name="year_id" Type="int" Nullable="false" />
+          <Property Name="Receipt" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Category" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Heading">
+          <Key>
+            <PropertyRef Name="HeadingId" />
+          </Key>
+          <Property Name="HeadingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HeadingName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Inventory">
+          <Key>
+            <PropertyRef Name="Inventory_ID" />
+          </Key>
+          <Property Name="Inventory_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Wine_name" Type="varchar" MaxLength="100" />
+          <Property Name="Barcode" Type="varchar" MaxLength="1000" />
+          <Property Name="Category_ID" Type="int" />
+          <Property Name="Description" Type="varchar" MaxLength="1000" />
+          <Property Name="BottleSize_ID" Type="int" />
+          <Property Name="BottlePrize" Type="varchar" MaxLength="50" />
+          <Property Name="Cost_Wholesale" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Heading_ID" Type="int" />
+          <Property Name="SubHeading_ID" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="RecNo" Type="int" />
+          <Property Name="WineListLineNo" Type="varchar" MaxLength="50" />
+          <Property Name="WinelistCategory" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="AlphaSort" Type="varchar" MaxLength="500" />
+          <Property Name="Loc1" Type="varchar" MaxLength="100" />
+          <Property Name="Count1" Type="varchar" MaxLength="100" />
+          <Property Name="Loc2" Type="varchar" MaxLength="100" />
+          <Property Name="Count2" Type="varchar" MaxLength="100" />
+          <Property Name="Loc3" Type="varchar" MaxLength="100" />
+          <Property Name="Count3" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Inventory_Stock">
+          <Key>
+            <PropertyRef Name="Inventory_stockID" />
+          </Key>
+          <Property Name="Inventory_stockID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Inventory_ID" Type="int" />
+          <Property Name="Location1_name" Type="varchar" MaxLength="100" />
+          <Property Name="Location1_Qty" Type="int" />
+          <Property Name="Location2_name" Type="varchar" MaxLength="100" />
+          <Property Name="Location2_Qty" Type="int" />
+          <Property Name="Location3_name" Type="varchar" MaxLength="100" />
+          <Property Name="Location3_qty" Type="int" />
+        </EntityType>
+        <EntityType Name="OnlineTicketDistribution">
+          <Key>
+            <PropertyRef Name="ticket_dist_pk" />
+          </Key>
+          <Property Name="ticket_dist_pk" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dist_name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="from_ticket" Type="int" Nullable="false" />
+          <Property Name="to_number" Type="int" Nullable="false" />
+          <Property Name="created_date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PagePermission">
+          <Key>
+            <PropertyRef Name="Permision_pk" />
+          </Key>
+          <Property Name="Permision_pk" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pageName" Type="nvarchar" MaxLength="500" />
+          <Property Name="pageID" Type="varchar" MaxLength="100" />
+          <Property Name="PageView" Type="bit" />
+          <Property Name="PageInsert" Type="bit" />
+          <Property Name="PageDelete" Type="bit" />
+          <Property Name="PageEdit" Type="bit" />
+          <Property Name="userID" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PaymentInfo">
+          <Key>
+            <PropertyRef Name="payment_id" />
+          </Key>
+          <Property Name="payment_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="billingInfoID" Type="int" Nullable="false" />
+          <Property Name="card_name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="card_number" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="total_ticket" Type="int" Nullable="false" />
+          <Property Name="ticket_amount" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="payment_status" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="stire_payment_id" Type="nvarchar" MaxLength="100" />
+          <Property Name="payment_error" Type="nvarchar(max)" />
+          <Property Name="confirmation_no" Type="nvarchar" MaxLength="100" />
+          <Property Name="created_date" Type="datetime" Nullable="false" />
+          <Property Name="modified_date" Type="datetime" />
+          <Property Name="ticket_buyer_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RaffleYear">
+          <Key>
+            <PropertyRef Name="RaffleYear_ID" />
+          </Key>
+          <Property Name="RaffleYear_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RaffleYear" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="IsCurrentYear" Type="bit" Nullable="false" />
+          <Property Name="IsLoginYear" Type="bit" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="SubHeading">
+          <Key>
+            <PropertyRef Name="SubHeadingId" />
+          </Key>
+          <Property Name="SubHeadingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SubHeadingName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblBillingInformation">
+          <Key>
+            <PropertyRef Name="billing_pk" />
+          </Key>
+          <Property Name="billing_pk" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="firstname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="lastname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="phone" Type="varchar" MaxLength="20" />
+          <Property Name="address" Type="varchar" MaxLength="500" />
+          <Property Name="city" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="zip" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="createdDate" Type="datetime" Nullable="false" />
+          <Property Name="IPAddress" Type="varchar" MaxLength="20" />
+          <Property Name="ticket_buyer_id" Type="int" Nullable="false" />
+          <Property Name="state" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="tblTicketBuy">
+          <Key>
+            <PropertyRef Name="ticketBuy_Id" />
+          </Key>
+          <Property Name="ticketBuy_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ticket_from" Type="int" Nullable="false" />
+          <Property Name="ticket_to" Type="int" Nullable="false" />
+          <Property Name="ticket_buyer_Id" Type="int" Nullable="false" />
+          <Property Name="created_date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblTicketBuyerID">
+          <Key>
+            <PropertyRef Name="ticket_buyer_id" />
+          </Key>
+          <Property Name="ticket_buyer_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="created_date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TicketsDistribution">
+          <Key>
+            <PropertyRef Name="Tickt_Distr_pk" />
+          </Key>
+          <Property Name="Tickt_Distr_pk" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Dist_user_Fk" Type="int" Nullable="false" />
+          <Property Name="FromTicket" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ToTicket" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TotalTickets" Type="int" Nullable="false" />
+          <Property Name="LastAccessUserID" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="Dist_Type" Type="varchar" MaxLength="10" />
+          <Property Name="RAFFLE_FK" Type="int" />
+          <Property Name="CHURCH_FK" Type="int" />
+          <Property Name="MEMBER_FK" Type="int" />
+          <Property Name="MEM2MEM_FK" Type="int" />
+          <Property Name="YearID" Type="int" />
+        </EntityType>
+        <EntityType Name="TicketSold">
+          <Key>
+            <PropertyRef Name="TicketSold_fk" />
+          </Key>
+          <Property Name="TicketSold_fk" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GivenTo" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TicketFrom" Type="int" Nullable="false" />
+          <Property Name="TicketTo" Type="int" Nullable="false" />
+          <Property Name="TicketTotal" Type="int" Nullable="false" />
+          <Property Name="Phone" Type="varchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="200" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="LastAccessUserID" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="City" Type="varchar" MaxLength="50" />
+          <Property Name="State" Type="varchar" MaxLength="50" />
+          <Property Name="Zip" Type="varchar" MaxLength="50" />
+          <Property Name="Collected_By" Type="varchar" MaxLength="200" />
+          <Property Name="LastDistUserId" Type="int" />
+          <Property Name="LastDistUserName" Type="varchar" MaxLength="100" />
+          <Property Name="LastAccessUserName" Type="varchar" MaxLength="100" />
+          <Property Name="RAFFLE_FK" Type="int" />
+          <Property Name="CHURCH_FK" Type="int" />
+          <Property Name="MEMBER_FK" Type="int" />
+          <Property Name="MEM2MEM_FK" Type="int" />
+          <Property Name="YearID" Type="int" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="user_pk" />
+          </Key>
+          <Property Name="user_pk" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FullName" Type="varchar" MaxLength="100" />
+          <Property Name="username" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="userPhone" Type="varchar" MaxLength="50" />
+          <Property Name="userMobile" Type="varchar" MaxLength="50" />
+          <Property Name="UserAddress" Type="nvarchar" MaxLength="200" />
+          <Property Name="UserType" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="DistUser_Fk" Type="int" />
+          <Property Name="DistUserType" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="WinnerList">
+          <Key>
+            <PropertyRef Name="winnerListId" />
+          </Key>
+          <Property Name="winnerListId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Rank" Type="int" Nullable="false" />
+          <Property Name="WinnerName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="TicketNo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DistributerName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="YearID" Type="int" Nullable="false" />
+          <Property Name="Year" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="RaffleModelStoreContainer">
+          <EntitySet Name="BottleSize" EntityType="Self.BottleSize" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DIST_USERS" EntityType="Self.DIST_USERS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Expencess" EntityType="Self.Expencess" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Heading" EntityType="Self.Heading" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inventory" EntityType="Self.Inventory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inventory_Stock" EntityType="Self.Inventory_Stock" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OnlineTicketDistribution" EntityType="Self.OnlineTicketDistribution" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PagePermission" EntityType="Self.PagePermission" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PaymentInfo" EntityType="Self.PaymentInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RaffleYear" EntityType="Self.RaffleYear" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SubHeading" EntityType="Self.SubHeading" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblBillingInformation" EntityType="Self.tblBillingInformation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblTicketBuy" EntityType="Self.tblTicketBuy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblTicketBuyerID" EntityType="Self.tblTicketBuyerID" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TicketsDistribution" EntityType="Self.TicketsDistribution" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TicketSold" EntityType="Self.TicketSold" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WinnerList" EntityType="Self.WinnerList" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RaffleModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="RaffleEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+          <EntitySet Name="DIST_USERS" EntityType="RaffleModel.DIST_USERS" />
+          <EntitySet Name="OnlineTicketDistributions" EntityType="RaffleModel.OnlineTicketDistribution" />
+          <EntitySet Name="PagePermissions" EntityType="RaffleModel.PagePermission" />
+          <EntitySet Name="PaymentInfoes" EntityType="RaffleModel.PaymentInfo" />
+          <EntitySet Name="RaffleYears" EntityType="RaffleModel.RaffleYear" />
+          <EntitySet Name="tblBillingInformations" EntityType="RaffleModel.tblBillingInformation" />
+          <EntitySet Name="tblTicketBuys" EntityType="RaffleModel.tblTicketBuy" />
+          <EntitySet Name="tblTicketBuyerIDs" EntityType="RaffleModel.tblTicketBuyerID" />
+          <EntitySet Name="TicketsDistributions" EntityType="RaffleModel.TicketsDistribution" />
+          <EntitySet Name="TicketSolds" EntityType="RaffleModel.TicketSold" />
+          <EntitySet Name="Users" EntityType="RaffleModel.User" />
+          <EntitySet Name="WinnerLists" EntityType="RaffleModel.WinnerList" />
+          <EntitySet Name="Expencesses" EntityType="RaffleModel.Expencess" />
+          <EntitySet Name="Categories" EntityType="RaffleModel.Category" />
+          <EntitySet Name="Inventory_Stock" EntityType="RaffleModel.Inventory_Stock" />
+          <EntitySet Name="BottleSizes" EntityType="RaffleModel.BottleSize" />
+          <EntitySet Name="Headings" EntityType="RaffleModel.Heading" />
+          <EntitySet Name="SubHeadings" EntityType="RaffleModel.SubHeading" />
+          <EntitySet Name="Inventories" EntityType="RaffleModel.Inventory" />
+        </EntityContainer>
+        <EntityType Name="DIST_USERS">
+          <Key>
+            <PropertyRef Name="user_pk" />
+          </Key>
+          <Property Name="user_pk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="parent_userFk" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ChurchAdminstName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="createdDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="modifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastaccessUserId" Type="Int32" Nullable="false" />
+          <Property Name="UserType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy_UserFk" Type="Int32" Nullable="false" />
+          <Property Name="Balance" Type="Int32" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="TicketDist_Fk" Type="Int32" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Zip" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RAFFLE_FK" Type="Int32" />
+          <Property Name="CHURCH_FK" Type="Int32" />
+          <Property Name="MEMBER_FK" Type="Int32" />
+          <Property Name="MEM2MEM_FK" Type="Int32" />
+          <Property Name="TicketRate" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="YearID" Type="Int32" />
+          <Property Name="ChurchType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="OnlineTicketDistribution">
+          <Key>
+            <PropertyRef Name="ticket_dist_pk" />
+          </Key>
+          <Property Name="ticket_dist_pk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dist_name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="from_ticket" Type="Int32" Nullable="false" />
+          <Property Name="to_number" Type="Int32" Nullable="false" />
+          <Property Name="created_date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="PagePermission">
+          <Key>
+            <PropertyRef Name="Permision_pk" />
+          </Key>
+          <Property Name="Permision_pk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pageName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="pageID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PageView" Type="Boolean" />
+          <Property Name="PageInsert" Type="Boolean" />
+          <Property Name="PageDelete" Type="Boolean" />
+          <Property Name="PageEdit" Type="Boolean" />
+          <Property Name="userID" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="PaymentInfo">
+          <Key>
+            <PropertyRef Name="payment_id" />
+          </Key>
+          <Property Name="payment_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="billingInfoID" Type="Int32" Nullable="false" />
+          <Property Name="card_name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="card_number" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="total_ticket" Type="Int32" Nullable="false" />
+          <Property Name="ticket_amount" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="payment_status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="stire_payment_id" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="payment_error" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="confirmation_no" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="created_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="modified_date" Type="DateTime" Precision="3" />
+          <Property Name="ticket_buyer_id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RaffleYear">
+          <Key>
+            <PropertyRef Name="RaffleYear_ID" />
+          </Key>
+          <Property Name="RaffleYear_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RaffleYear1" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="IsCurrentYear" Type="Boolean" Nullable="false" />
+          <Property Name="IsLoginYear" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tblBillingInformation">
+          <Key>
+            <PropertyRef Name="billing_pk" />
+          </Key>
+          <Property Name="billing_pk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="firstname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lastname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="city" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="zip" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="createdDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IPAddress" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ticket_buyer_id" Type="Int32" Nullable="false" />
+          <Property Name="state" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblTicketBuy">
+          <Key>
+            <PropertyRef Name="ticketBuy_Id" />
+          </Key>
+          <Property Name="ticketBuy_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ticket_from" Type="Int32" Nullable="false" />
+          <Property Name="ticket_to" Type="Int32" Nullable="false" />
+          <Property Name="ticket_buyer_Id" Type="Int32" Nullable="false" />
+          <Property Name="created_date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="tblTicketBuyerID">
+          <Key>
+            <PropertyRef Name="ticket_buyer_id" />
+          </Key>
+          <Property Name="ticket_buyer_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="created_date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="TicketsDistribution">
+          <Key>
+            <PropertyRef Name="Tickt_Distr_pk" />
+          </Key>
+          <Property Name="Tickt_Distr_pk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Dist_user_Fk" Type="Int32" Nullable="false" />
+          <Property Name="FromTicket" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ToTicket" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TotalTickets" Type="Int32" Nullable="false" />
+          <Property Name="LastAccessUserID" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Dist_Type" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="RAFFLE_FK" Type="Int32" />
+          <Property Name="CHURCH_FK" Type="Int32" />
+          <Property Name="MEMBER_FK" Type="Int32" />
+          <Property Name="MEM2MEM_FK" Type="Int32" />
+          <Property Name="YearID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TicketSold">
+          <Key>
+            <PropertyRef Name="TicketSold_fk" />
+          </Key>
+          <Property Name="TicketSold_fk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GivenTo" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TicketFrom" Type="Int32" Nullable="false" />
+          <Property Name="TicketTo" Type="Int32" Nullable="false" />
+          <Property Name="TicketTotal" Type="Int32" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastAccessUserID" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Zip" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Collected_By" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="LastDistUserId" Type="Int32" />
+          <Property Name="LastDistUserName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="LastAccessUserName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="RAFFLE_FK" Type="Int32" />
+          <Property Name="CHURCH_FK" Type="Int32" />
+          <Property Name="MEMBER_FK" Type="Int32" />
+          <Property Name="MEM2MEM_FK" Type="Int32" />
+          <Property Name="YearID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="user_pk" />
+          </Key>
+          <Property Name="user_pk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="username" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="userPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="userMobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="UserType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DistUser_Fk" Type="Int32" />
+          <Property Name="DistUserType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="WinnerList">
+          <Key>
+            <PropertyRef Name="winnerListId" />
+          </Key>
+          <Property Name="winnerListId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Rank" Type="Int32" Nullable="false" />
+          <Property Name="WinnerName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TicketNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DistributerName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="YearID" Type="Int32" Nullable="false" />
+          <Property Name="Year" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Expencess">
+          <Key>
+            <PropertyRef Name="expences_id" />
+          </Key>
+          <Property Name="expences_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="expences_name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="given_to" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Amount" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="expences_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="year_id" Type="Int32" Nullable="false" />
+          <Property Name="Receipt" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Category" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Category_ID" />
+          </Key>
+          <Property Name="Category_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Category_Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Inventory_Stock">
+          <Key>
+            <PropertyRef Name="Inventory_stockID" />
+          </Key>
+          <Property Name="Inventory_stockID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Inventory_ID" Type="Int32" />
+          <Property Name="Location1_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Location1_Qty" Type="Int32" />
+          <Property Name="Location2_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Location2_Qty" Type="Int32" />
+          <Property Name="Location3_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Location3_qty" Type="Int32" />
+        </EntityType>
+        <EntityType Name="BottleSize">
+          <Key>
+            <PropertyRef Name="BottleSizeId" />
+          </Key>
+          <Property Name="BottleSizeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BottleSizeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Heading">
+          <Key>
+            <PropertyRef Name="HeadingId" />
+          </Key>
+          <Property Name="HeadingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HeadingName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SubHeading">
+          <Key>
+            <PropertyRef Name="SubHeadingId" />
+          </Key>
+          <Property Name="SubHeadingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SubHeadingName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Inventory">
+          <Key>
+            <PropertyRef Name="Inventory_ID" />
+          </Key>
+          <Property Name="Inventory_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Wine_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Barcode" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Category_ID" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="BottleSize_ID" Type="Int32" />
+          <Property Name="BottlePrize" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Cost_Wholesale" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Heading_ID" Type="Int32" />
+          <Property Name="SubHeading_ID" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="RecNo" Type="Int32" />
+          <Property Name="WineListLineNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WinelistCategory" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="AlphaSort" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Loc1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Count1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Loc2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Count2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Loc3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Count3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RaffleModelStoreContainer" CdmEntityContainer="RaffleEntities">
+          <EntitySetMapping Name="DIST_USERS">
+            <EntityTypeMapping TypeName="RaffleModel.DIST_USERS">
+              <MappingFragment StoreEntitySet="DIST_USERS">
+                <ScalarProperty Name="ChurchType" ColumnName="ChurchType" />
+                <ScalarProperty Name="YearID" ColumnName="YearID" />
+                <ScalarProperty Name="TicketRate" ColumnName="TicketRate" />
+                <ScalarProperty Name="MEM2MEM_FK" ColumnName="MEM2MEM_FK" />
+                <ScalarProperty Name="MEMBER_FK" ColumnName="MEMBER_FK" />
+                <ScalarProperty Name="CHURCH_FK" ColumnName="CHURCH_FK" />
+                <ScalarProperty Name="RAFFLE_FK" ColumnName="RAFFLE_FK" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="TicketDist_Fk" ColumnName="TicketDist_Fk" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+                <ScalarProperty Name="CreatedBy_UserFk" ColumnName="CreatedBy_UserFk" />
+                <ScalarProperty Name="UserType" ColumnName="UserType" />
+                <ScalarProperty Name="LastaccessUserId" ColumnName="LastaccessUserId" />
+                <ScalarProperty Name="modifiedDate" ColumnName="modifiedDate" />
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="ChurchAdminstName" ColumnName="ChurchAdminstName" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="parent_userFk" ColumnName="parent_userFk" />
+                <ScalarProperty Name="user_pk" ColumnName="user_pk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OnlineTicketDistributions">
+            <EntityTypeMapping TypeName="RaffleModel.OnlineTicketDistribution">
+              <MappingFragment StoreEntitySet="OnlineTicketDistribution">
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="to_number" ColumnName="to_number" />
+                <ScalarProperty Name="from_ticket" ColumnName="from_ticket" />
+                <ScalarProperty Name="dist_name" ColumnName="dist_name" />
+                <ScalarProperty Name="ticket_dist_pk" ColumnName="ticket_dist_pk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PagePermissions">
+            <EntityTypeMapping TypeName="RaffleModel.PagePermission">
+              <MappingFragment StoreEntitySet="PagePermission">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="PageEdit" ColumnName="PageEdit" />
+                <ScalarProperty Name="PageDelete" ColumnName="PageDelete" />
+                <ScalarProperty Name="PageInsert" ColumnName="PageInsert" />
+                <ScalarProperty Name="PageView" ColumnName="PageView" />
+                <ScalarProperty Name="pageID" ColumnName="pageID" />
+                <ScalarProperty Name="pageName" ColumnName="pageName" />
+                <ScalarProperty Name="Permision_pk" ColumnName="Permision_pk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaymentInfoes">
+            <EntityTypeMapping TypeName="RaffleModel.PaymentInfo">
+              <MappingFragment StoreEntitySet="PaymentInfo">
+                <ScalarProperty Name="ticket_buyer_id" ColumnName="ticket_buyer_id" />
+                <ScalarProperty Name="modified_date" ColumnName="modified_date" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="confirmation_no" ColumnName="confirmation_no" />
+                <ScalarProperty Name="payment_error" ColumnName="payment_error" />
+                <ScalarProperty Name="stire_payment_id" ColumnName="stire_payment_id" />
+                <ScalarProperty Name="payment_status" ColumnName="payment_status" />
+                <ScalarProperty Name="ticket_amount" ColumnName="ticket_amount" />
+                <ScalarProperty Name="total_ticket" ColumnName="total_ticket" />
+                <ScalarProperty Name="card_number" ColumnName="card_number" />
+                <ScalarProperty Name="card_name" ColumnName="card_name" />
+                <ScalarProperty Name="billingInfoID" ColumnName="billingInfoID" />
+                <ScalarProperty Name="payment_id" ColumnName="payment_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RaffleYears">
+            <EntityTypeMapping TypeName="RaffleModel.RaffleYear">
+              <MappingFragment StoreEntitySet="RaffleYear">
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="IsLoginYear" ColumnName="IsLoginYear" />
+                <ScalarProperty Name="IsCurrentYear" ColumnName="IsCurrentYear" />
+                <ScalarProperty Name="RaffleYear1" ColumnName="RaffleYear" />
+                <ScalarProperty Name="RaffleYear_ID" ColumnName="RaffleYear_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblBillingInformations">
+            <EntityTypeMapping TypeName="RaffleModel.tblBillingInformation">
+              <MappingFragment StoreEntitySet="tblBillingInformation">
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="ticket_buyer_id" ColumnName="ticket_buyer_id" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+                <ScalarProperty Name="zip" ColumnName="zip" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="billing_pk" ColumnName="billing_pk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblTicketBuys">
+            <EntityTypeMapping TypeName="RaffleModel.tblTicketBuy">
+              <MappingFragment StoreEntitySet="tblTicketBuy">
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="ticket_buyer_Id" ColumnName="ticket_buyer_Id" />
+                <ScalarProperty Name="ticket_to" ColumnName="ticket_to" />
+                <ScalarProperty Name="ticket_from" ColumnName="ticket_from" />
+                <ScalarProperty Name="ticketBuy_Id" ColumnName="ticketBuy_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblTicketBuyerIDs">
+            <EntityTypeMapping TypeName="RaffleModel.tblTicketBuyerID">
+              <MappingFragment StoreEntitySet="tblTicketBuyerID">
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="ticket_buyer_id" ColumnName="ticket_buyer_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TicketsDistributions">
+            <EntityTypeMapping TypeName="RaffleModel.TicketsDistribution">
+              <MappingFragment StoreEntitySet="TicketsDistribution">
+                <ScalarProperty Name="YearID" ColumnName="YearID" />
+                <ScalarProperty Name="MEM2MEM_FK" ColumnName="MEM2MEM_FK" />
+                <ScalarProperty Name="MEMBER_FK" ColumnName="MEMBER_FK" />
+                <ScalarProperty Name="CHURCH_FK" ColumnName="CHURCH_FK" />
+                <ScalarProperty Name="RAFFLE_FK" ColumnName="RAFFLE_FK" />
+                <ScalarProperty Name="Dist_Type" ColumnName="Dist_Type" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="LastAccessUserID" ColumnName="LastAccessUserID" />
+                <ScalarProperty Name="TotalTickets" ColumnName="TotalTickets" />
+                <ScalarProperty Name="ToTicket" ColumnName="ToTicket" />
+                <ScalarProperty Name="FromTicket" ColumnName="FromTicket" />
+                <ScalarProperty Name="Dist_user_Fk" ColumnName="Dist_user_Fk" />
+                <ScalarProperty Name="Tickt_Distr_pk" ColumnName="Tickt_Distr_pk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TicketSolds">
+            <EntityTypeMapping TypeName="RaffleModel.TicketSold">
+              <MappingFragment StoreEntitySet="TicketSold">
+                <ScalarProperty Name="YearID" ColumnName="YearID" />
+                <ScalarProperty Name="MEM2MEM_FK" ColumnName="MEM2MEM_FK" />
+                <ScalarProperty Name="MEMBER_FK" ColumnName="MEMBER_FK" />
+                <ScalarProperty Name="CHURCH_FK" ColumnName="CHURCH_FK" />
+                <ScalarProperty Name="RAFFLE_FK" ColumnName="RAFFLE_FK" />
+                <ScalarProperty Name="LastAccessUserName" ColumnName="LastAccessUserName" />
+                <ScalarProperty Name="LastDistUserName" ColumnName="LastDistUserName" />
+                <ScalarProperty Name="LastDistUserId" ColumnName="LastDistUserId" />
+                <ScalarProperty Name="Collected_By" ColumnName="Collected_By" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="LastAccessUserID" ColumnName="LastAccessUserID" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="TicketTotal" ColumnName="TicketTotal" />
+                <ScalarProperty Name="TicketTo" ColumnName="TicketTo" />
+                <ScalarProperty Name="TicketFrom" ColumnName="TicketFrom" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="GivenTo" ColumnName="GivenTo" />
+                <ScalarProperty Name="TicketSold_fk" ColumnName="TicketSold_fk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="RaffleModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="DistUserType" ColumnName="DistUserType" />
+                <ScalarProperty Name="DistUser_Fk" ColumnName="DistUser_Fk" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UserType" ColumnName="UserType" />
+                <ScalarProperty Name="UserAddress" ColumnName="UserAddress" />
+                <ScalarProperty Name="userMobile" ColumnName="userMobile" />
+                <ScalarProperty Name="userPhone" ColumnName="userPhone" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="user_pk" ColumnName="user_pk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WinnerLists">
+            <EntityTypeMapping TypeName="RaffleModel.WinnerList">
+              <MappingFragment StoreEntitySet="WinnerList">
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="YearID" ColumnName="YearID" />
+                <ScalarProperty Name="DistributerName" ColumnName="DistributerName" />
+                <ScalarProperty Name="TicketNo" ColumnName="TicketNo" />
+                <ScalarProperty Name="WinnerName" ColumnName="WinnerName" />
+                <ScalarProperty Name="Rank" ColumnName="Rank" />
+                <ScalarProperty Name="winnerListId" ColumnName="winnerListId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Expencesses">
+            <EntityTypeMapping TypeName="RaffleModel.Expencess">
+              <MappingFragment StoreEntitySet="Expencess">
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Receipt" ColumnName="Receipt" />
+                <ScalarProperty Name="year_id" ColumnName="year_id" />
+                <ScalarProperty Name="expences_date" ColumnName="expences_date" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="given_to" ColumnName="given_to" />
+                <ScalarProperty Name="expences_name" ColumnName="expences_name" />
+                <ScalarProperty Name="expences_id" ColumnName="expences_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="RaffleModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="Category_Name" ColumnName="Category_Name" />
+                <ScalarProperty Name="Category_ID" ColumnName="Category_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inventory_Stock">
+            <EntityTypeMapping TypeName="RaffleModel.Inventory_Stock">
+              <MappingFragment StoreEntitySet="Inventory_Stock">
+                <ScalarProperty Name="Location3_qty" ColumnName="Location3_qty" />
+                <ScalarProperty Name="Location3_name" ColumnName="Location3_name" />
+                <ScalarProperty Name="Location2_Qty" ColumnName="Location2_Qty" />
+                <ScalarProperty Name="Location2_name" ColumnName="Location2_name" />
+                <ScalarProperty Name="Location1_Qty" ColumnName="Location1_Qty" />
+                <ScalarProperty Name="Location1_name" ColumnName="Location1_name" />
+                <ScalarProperty Name="Inventory_ID" ColumnName="Inventory_ID" />
+                <ScalarProperty Name="Inventory_stockID" ColumnName="Inventory_stockID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BottleSizes">
+            <EntityTypeMapping TypeName="RaffleModel.BottleSize">
+              <MappingFragment StoreEntitySet="BottleSize">
+                <ScalarProperty Name="BottleSizeName" ColumnName="BottleSizeName" />
+                <ScalarProperty Name="BottleSizeId" ColumnName="BottleSizeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Headings">
+            <EntityTypeMapping TypeName="RaffleModel.Heading">
+              <MappingFragment StoreEntitySet="Heading">
+                <ScalarProperty Name="HeadingName" ColumnName="HeadingName" />
+                <ScalarProperty Name="HeadingId" ColumnName="HeadingId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubHeadings">
+            <EntityTypeMapping TypeName="RaffleModel.SubHeading">
+              <MappingFragment StoreEntitySet="SubHeading">
+                <ScalarProperty Name="SubHeadingName" ColumnName="SubHeadingName" />
+                <ScalarProperty Name="SubHeadingId" ColumnName="SubHeadingId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inventories">
+            <EntityTypeMapping TypeName="RaffleModel.Inventory">
+              <MappingFragment StoreEntitySet="Inventory">
+                <ScalarProperty Name="Count3" ColumnName="Count3" />
+                <ScalarProperty Name="Loc3" ColumnName="Loc3" />
+                <ScalarProperty Name="Count2" ColumnName="Count2" />
+                <ScalarProperty Name="Loc2" ColumnName="Loc2" />
+                <ScalarProperty Name="Count1" ColumnName="Count1" />
+                <ScalarProperty Name="Loc1" ColumnName="Loc1" />
+                <ScalarProperty Name="AlphaSort" ColumnName="AlphaSort" />
+                <ScalarProperty Name="WinelistCategory" ColumnName="WinelistCategory" />
+                <ScalarProperty Name="WineListLineNo" ColumnName="WineListLineNo" />
+                <ScalarProperty Name="RecNo" ColumnName="RecNo" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="SubHeading_ID" ColumnName="SubHeading_ID" />
+                <ScalarProperty Name="Heading_ID" ColumnName="Heading_ID" />
+                <ScalarProperty Name="Cost_Wholesale" ColumnName="Cost_Wholesale" />
+                <ScalarProperty Name="BottlePrize" ColumnName="BottlePrize" />
+                <ScalarProperty Name="BottleSize_ID" ColumnName="BottleSize_ID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Category_ID" ColumnName="Category_ID" />
+                <ScalarProperty Name="Barcode" ColumnName="Barcode" />
+                <ScalarProperty Name="Wine_name" ColumnName="Wine_name" />
+                <ScalarProperty Name="Inventory_ID" ColumnName="Inventory_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer>
+    <edmx:Connection>
+      <edmx:DesignerInfoPropertySet>
+        <edmx:DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </edmx:DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <edmx:DesignerInfoPropertySet>
+        <edmx:DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <edmx:DesignerProperty Name="EnablePluralization" Value="True" />
+        <edmx:DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <edmx:DesignerProperty Name="UseLegacyProvider" Value="True" />
+      </edmx:DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <edmx:Diagram Name="Raffle" ZoomLevel="63">
+        <edmx:EntityTypeShape EntityType="RaffleModel.DIST_USERS" Width="1.5" PointX="0.75" PointY="0.75" />
+        <edmx:EntityTypeShape EntityType="RaffleModel.OnlineTicketDistribution" Width="1.5" PointX="4.75" PointY="0.75" />
+        <edmx:EntityTypeShape EntityType="RaffleModel.PagePermission" Width="1.5" PointX="2.75" PointY="4.75" />
+        <edmx:EntityTypeShape EntityType="RaffleModel.PaymentInfo" Width="1.5" PointX="4.75" PointY="3.75" />
+        <edmx:EntityTypeShape EntityType="RaffleModel.RaffleYear" Width="1.5" PointX="6.75" PointY="0.75" />
+        <edmx:EntityTypeShape EntityType="RaffleModel.tblBillingInformation" Width="1.5" PointX="6.75" PointY="3.75" />
+        <edmx:EntityTypeShape EntityType="RaffleModel.tblTicketBuy" Width="1.5" PointX="8.75" PointY="0.75" />
+        <edmx:EntityTypeShape EntityType="RaffleModel.tblTicketBuyerID" Width="1.5" PointX="0.75" PointY="8.75" />
+        <edmx:EntityTypeShape EntityType="RaffleModel.TicketsDistribution" Width="1.5" PointX="2.75" PointY="8.75" />
+        <edmx:EntityTypeShape EntityType="RaffleModel.TicketSold" Width="1.5" PointX="8.75" PointY="3.75" />
+        <edmx:EntityTypeShape EntityType="RaffleModel.User" Width="1.5" PointX="4.75" PointY="8.75" />
+        <edmx:EntityTypeShape EntityType="RaffleModel.WinnerList" Width="1.5" PointX="10.75" PointY="0.75" />
+        <edmx:EntityTypeShape EntityType="RaffleModel.Expencess" Width="1.5" PointX="7.375" PointY="10.75" />
+        <edmx:EntityTypeShape EntityType="RaffleModel.Category" Width="1.5" PointX="9.375" PointY="10.75" />
+        <edmx:EntityTypeShape EntityType="RaffleModel.Inventory_Stock" Width="1.5" PointX="11.375" PointY="8.75" />
+        <edmx:EntityTypeShape EntityType="RaffleModel.BottleSize" Width="1.5" PointX="11.75" PointY="4.75" />
+        <edmx:EntityTypeShape EntityType="RaffleModel.Heading" Width="1.5" PointX="13.75" PointY="0.75" />
+        <edmx:EntityTypeShape EntityType="RaffleModel.SubHeading" Width="1.5" PointX="0.75" PointY="13.75" />
+        <edmx:EntityTypeShape EntityType="RaffleModel.Inventory" Width="1.5" PointX="11.375" PointY="12.75" />
+      </edmx:Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
